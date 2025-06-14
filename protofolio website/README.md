@@ -1,0 +1,1 @@
+It is a personal portfolio website it contain my personal detail like intro,project and contact from.it use the HTML,CSS for the tech stack.

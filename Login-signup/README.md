@@ -1,0 +1,1 @@
+It is login and signup page use the basic HTML,CSS for the tech purpose.when you have a new user you can goto signup page.when you are an exisiting user you go to login page.

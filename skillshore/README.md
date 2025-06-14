@@ -1,0 +1,1 @@
+It is a Education platform SkillShore.it has features like various subject access,mentors for various subjects.it is tech stack like html,css.

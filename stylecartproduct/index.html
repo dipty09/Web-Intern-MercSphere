@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StyleCart - Product Listing</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    .product-card img {
+      height: 200px;
+      object-fit: cover;
+    }
+    .filter-section {
+      position: sticky;
+      top: 1rem;
+    }
+    .view-toggle button {
+      border: none;
+      background: none;
+      font-size: 1.2rem;
+    }
+    .rating i {
+      color: gold;
+    }
+    .product-card {
+      position: relative;
+      transition: 0.3s ease-in-out;
+    }
+    .product-card:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+    .product-card .overlay {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+    .view-toggle button.active {
+      color: #0d6efd;
+    }
+    .wishlist-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #dc3545;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .hero-banner {
+      background: url('https://source.unsplash.com/1600x500/?fashion,store') no-repeat center center / cover;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero-banner text-black text-center py-5">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Discover Your Style</h1>
+      <p class="lead">Explore the best deals on trending fashion</p>
+      <a href="#productContainer" class="btn btn-dark btn-lg mt-3">Shop Now</a>
+    </div>
+  </section>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">StyleCart</a>
+      <form class="d-flex ms-auto">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <!-- Category Cards -->
+  <section class="container my-5">
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="card bg-dark text-white">
+          <img src="mansfashion.jpg" class="card-img" alt="Men">
+          <div class="card-img-overlay d-flex align-items-center justify-content-center">
+          </div>
+          <button class="btn text-white">Man</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card bg-dark text-white">
+          <img src="womenfashion.jpg" class="card-img" alt="Women">
+          <div class="card-img-overlay d-flex align-items-center justify-content-center">
+          </div>
+         <button class="btn text-white">Women</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card bg-dark text-white">
+          <img src="kids.jpg" class="card-img" alt="Kids">
+          <div class="card-img-overlay d-flex align-items-center justify-content-center">
+          </div>
+        <button class="btn text-white">kids</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Header -->
+  
+
+  <!-- Main Layout -->
+  <div class="container-fluid mt-4">
+    <div class="row">
+
+      <!-- Filters Sidebar -->
+      <div class="col-md-3">
+        <div class="bg-white p-4 shadow-sm filter-section rounded">
+          <h5>Category</h5>
+          <div class="form-check"><input class="form-check-input" type="checkbox" id="men"><label class="form-check-label" for="men">Men</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" id="women"><label class="form-check-label" for="women">Women</label></div>
+          <div class="form-check mb-3"><input class="form-check-input" type="checkbox" id="kids"><label class="form-check-label" for="kids">Kids</label></div>
+
+          <h5>Price Range</h5>
+          <input type="range" class="form-range" min="0" max="1000" step="50" id="priceRange">
+          <div class="d-flex justify-content-between mb-3">
+            <span>$0</span><span>$<span id="priceValue">1000</span></span>
+          </div>
+
+          <h5>Rating</h5>
+          <input type="range" class="form-range" min="1" max="5" step="1" id="ratingRange">
+          <div class="d-flex justify-content-between"><span><span id="ratingValue">5</span>★</span><span>5★</span></div>
+        </div>
+      </div>
+
+      <!-- Products Section -->
+      <div class="col-md-9">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="mb-0">Products</h4>
+          <div class="view-toggle">
+            <button id="gridView" class="active" title="Grid View"><i class="fas fa-th"></i></button>
+            <button id="listView" title="List View"><i class="fas fa-list"></i></button>
+          </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="productContainer">
+          <!-- Product Cards -->
+          <div class="col">
+            <div class="card product-card">
+              <i class="fas fa-heart wishlist-icon"></i>
+              <img src="fashion.jpg" class="card-img-top" alt="Product">
+              <div class="card-body">
+                <h5 class="card-title">Classic Shirt</h5>
+                <p class="card-text">$49.99</p>
+                <div class="rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                </div>
+              </div>
+              <div class="overlay">Add to Cart</div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card product-card">
+              <i class="fas fa-heart wishlist-icon"></i>
+              <img src="denimjeans.jpg" class="card-img-top" alt="Jeans">
+              <div class="card-body">
+                <h5 class="card-title">Denim Jeans</h5>
+                <p class="card-text">$59.99</p>
+                <div class="rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                </div>
+              </div>
+              <div class="overlay">Add to Cart</div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card product-card">
+              <i class="fas fa-heart wishlist-icon"></i>
+              <img src="winterjacket.jpg" class="card-img-top" alt="Jacket">
+              <div class="card-body">
+                <h5 class="card-title">Winter Jacket</h5>
+                <p class="card-text">$89.99</p>
+                <div class="rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                </div>
+              </div>
+              <div class="overlay">Add to Cart</div>
+            </div>
+          </div>
+
+          <!-- Add more product cards below this line -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const gridBtn = document.getElementById('gridView');
+    const listBtn = document.getElementById('listView');
+    const container = document.getElementById('productContainer');
+
+    gridBtn.addEventListener('click', () => {
+      container.classList.remove('row-cols-1');
+      container.classList.add('row-cols-md-2', 'row-cols-lg-3');
+      gridBtn.classList.add('active');
+      listBtn.classList.remove('active');
+    });
+
+    listBtn.addEventListener('click', () => {
+      container.classList.remove('row-cols-md-2', 'row-cols-lg-3');
+      container.classList.add('row-cols-1');
+      listBtn.classList.add('active');
+      gridBtn.classList.remove('active');
+    });
+
+    const priceRange = document.getElementById('priceRange');
+    const priceValue = document.getElementById('priceValue');
+    priceRange.addEventListener('input', () => {
+      priceValue.textContent = priceRange.value;
+    });
+
+    const ratingRange = document.getElementById('ratingRange');
+    const ratingValue = document.getElementById('ratingValue');
+    ratingRange.addEventListener('input', () => {
+      ratingValue.textContent = ratingRange.value;
+    });
+  </script>
+  <!-- Footer -->
+<footer class="bg-dark text-light mt-5 pt-4 pb-3">
+  <div class="container">
+    <div class="row">
+      <!-- Contact Info -->
+      <div class="col-md-4 mb-3">
+        <h5>Contact Us</h5>
+        <p><i class="fas fa-envelope me-2"></i> support@stylecart.com</p>
+        <p><i class="fas fa-phone me-2"></i> +91 9348104527</p>
+        <p><i class="fas fa-map-marker-alt me-2"></i> Bhubaneswar, Odisha, India</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 mb-3">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-decoration-none text-light">Home</a></li>
+          <li><a href="#" class="text-decoration-none text-light">Shop</a></li>
+          <li><a href="#" class="text-decoration-none text-light">Cart</a></li>
+          <li><a href="#" class="text-decoration-none text-light">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-4 mb-3">
+        <h5>Follow Us</h5>
+        <a href="#" class="text-light me-3"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="#" class="text-light me-3"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
+        <a href="#" class="text-light"><i class="fab fa-linkedin fa-lg"></i></a>
+      </div>
+    </div>
+    <hr class="border-light" />
+    <div class="text-center small">
+      &copy; 2025 StyleCart. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

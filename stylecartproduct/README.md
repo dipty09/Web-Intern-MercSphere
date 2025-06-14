@@ -1,0 +1,1 @@
+This is a StyleCart website.Using html,css,Javascript as technology.It show different men,women,kids section and price range belongs to your range of prize.

@@ -1,0 +1,1 @@
+It is a landing page of "brewmoodCafe"it foucs on layout,hero,image and CTA.it is tech stack like HTML,CSS.

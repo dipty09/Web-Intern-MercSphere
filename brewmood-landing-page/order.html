@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+    <div class="logo">BrewMood Café</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="testimonial.html">Testimonials</a>
+        <a href="order.html">Order</a>
+    </nav>
+  </header>
+ <section class="page-banner">
+    <h1>Order</h1>
+  </section>
+<section>
+    <form class="order-form">
+    <input type="text" placeholder="Your Name" required />
+    <input type="tel" placeholder="Phone Number" required />
+    <select required>
+      <option value="">Select Coffee</option>
+      <option value="espresso">Espresso</option>
+      <option value="latte">Latte</option>
+      <option value="mocha">Mocha</option>
+      <option value="cappuccino">Cappuccino</option>
+    </select>
+    <input type="number" placeholder="Quantity" min="1" max="10" required />
+    <textarea placeholder="Special instructions..."></textarea>
+    <button type="submit" class="cta-button">Place Order</button>
+    </form>
+</section>
+
+  <footer>
+    <p>© 2025 BrewMood Café | Follow us on Instagram @brewmoodcafe</p>
+  </footer>
+</body>
+</html>
